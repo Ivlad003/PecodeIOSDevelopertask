@@ -13,6 +13,15 @@
 		CA04844A26BC27D600024D84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA04844826BC27D600024D84 /* Main.storyboard */; };
 		CA04844C26BC27D600024D84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA04844B26BC27D600024D84 /* Assets.xcassets */; };
 		CA04844F26BC27D600024D84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA04844D26BC27D600024D84 /* LaunchScreen.storyboard */; };
+		CA04846326BC2CEA00024D84 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA04846226BC2CEA00024D84 /* NewsModel.swift */; };
+		CA3D4F0226BCF3620058E2BC /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3D4F0126BCF3620058E2BC /* NewsTableViewCell.swift */; };
+		CADF53C126BD781200331EBF /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = CADF53C026BD781200331EBF /* Realm */; };
+		CADF53C326BD781200331EBF /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CADF53C226BD781200331EBF /* RealmSwift */; };
+		CADF53C526BDA5F900331EBF /* FavoritesViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADF53C426BDA5F900331EBF /* FavoritesViewControllers.swift */; };
+		CADF53C726BDB09100331EBF /* NewsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADF53C626BDB09100331EBF /* NewsDetailsViewController.swift */; };
+		CADF53C926BDBB9500331EBF /* ViewControllerTableExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADF53C826BDBB9500331EBF /* ViewControllerTableExtentions.swift */; };
+		CADF53CB26BDBBD500331EBF /* ViewControllerApiFuncExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADF53CA26BDBBD500331EBF /* ViewControllerApiFuncExtentions.swift */; };
+		CADF53CD26BDBE9300331EBF /* FavoritesViewControllerTableExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADF53CC26BDBE9300331EBF /* FavoritesViewControllerTableExtentions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +33,13 @@
 		CA04844B26BC27D600024D84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA04844E26BC27D600024D84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA04845026BC27D600024D84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA04846226BC2CEA00024D84 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		CA3D4F0126BCF3620058E2BC /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		CADF53C426BDA5F900331EBF /* FavoritesViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewControllers.swift; sourceTree = "<group>"; };
+		CADF53C626BDB09100331EBF /* NewsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewController.swift; sourceTree = "<group>"; };
+		CADF53C826BDBB9500331EBF /* ViewControllerTableExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTableExtentions.swift; sourceTree = "<group>"; };
+		CADF53CA26BDBBD500331EBF /* ViewControllerApiFuncExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerApiFuncExtentions.swift; sourceTree = "<group>"; };
+		CADF53CC26BDBE9300331EBF /* FavoritesViewControllerTableExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewControllerTableExtentions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CADF53C326BD781200331EBF /* RealmSwift in Frameworks */,
+				CADF53C126BD781200331EBF /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +74,54 @@
 		CA04844126BC27D600024D84 /* PecodeIOSDevelopertask */ = {
 			isa = PBXGroup;
 			children = (
+				CADF53D126BDBEE700331EBF /* favorite */,
+				CADF53D026BDBED700331EBF /* models */,
+				CADF53CF26BDBECD00331EBF /* details */,
+				CADF53CE26BDBEC400331EBF /* home */,
 				CA04844226BC27D600024D84 /* AppDelegate.swift */,
 				CA04844426BC27D600024D84 /* SceneDelegate.swift */,
-				CA04844626BC27D600024D84 /* ViewController.swift */,
 				CA04844826BC27D600024D84 /* Main.storyboard */,
 				CA04844B26BC27D600024D84 /* Assets.xcassets */,
 				CA04844D26BC27D600024D84 /* LaunchScreen.storyboard */,
 				CA04845026BC27D600024D84 /* Info.plist */,
 			);
 			path = PecodeIOSDevelopertask;
+			sourceTree = "<group>";
+		};
+		CADF53CE26BDBEC400331EBF /* home */ = {
+			isa = PBXGroup;
+			children = (
+				CA04844626BC27D600024D84 /* ViewController.swift */,
+				CADF53C826BDBB9500331EBF /* ViewControllerTableExtentions.swift */,
+				CADF53CA26BDBBD500331EBF /* ViewControllerApiFuncExtentions.swift */,
+				CA3D4F0126BCF3620058E2BC /* NewsTableViewCell.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		CADF53CF26BDBECD00331EBF /* details */ = {
+			isa = PBXGroup;
+			children = (
+				CADF53C626BDB09100331EBF /* NewsDetailsViewController.swift */,
+			);
+			path = details;
+			sourceTree = "<group>";
+		};
+		CADF53D026BDBED700331EBF /* models */ = {
+			isa = PBXGroup;
+			children = (
+				CA04846226BC2CEA00024D84 /* NewsModel.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		CADF53D126BDBEE700331EBF /* favorite */ = {
+			isa = PBXGroup;
+			children = (
+				CADF53C426BDA5F900331EBF /* FavoritesViewControllers.swift */,
+				CADF53CC26BDBE9300331EBF /* FavoritesViewControllerTableExtentions.swift */,
+			);
+			path = favorite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +140,10 @@
 			dependencies = (
 			);
 			name = PecodeIOSDevelopertask;
+			packageProductDependencies = (
+				CADF53C026BD781200331EBF /* Realm */,
+				CADF53C226BD781200331EBF /* RealmSwift */,
+			);
 			productName = PecodeIOSDevelopertask;
 			productReference = CA04843F26BC27D600024D84 /* PecodeIOSDevelopertask.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +172,9 @@
 				Base,
 			);
 			mainGroup = CA04843626BC27D600024D84;
+			packageReferences = (
+				CADF53BF26BD781200331EBF /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = CA04844026BC27D600024D84 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,9 +202,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA04846326BC2CEA00024D84 /* NewsModel.swift in Sources */,
 				CA04844726BC27D600024D84 /* ViewController.swift in Sources */,
 				CA04844326BC27D600024D84 /* AppDelegate.swift in Sources */,
 				CA04844526BC27D600024D84 /* SceneDelegate.swift in Sources */,
+				CADF53C926BDBB9500331EBF /* ViewControllerTableExtentions.swift in Sources */,
+				CA3D4F0226BCF3620058E2BC /* NewsTableViewCell.swift in Sources */,
+				CADF53C726BDB09100331EBF /* NewsDetailsViewController.swift in Sources */,
+				CADF53C526BDA5F900331EBF /* FavoritesViewControllers.swift in Sources */,
+				CADF53CD26BDBE9300331EBF /* FavoritesViewControllerTableExtentions.swift in Sources */,
+				CADF53CB26BDBBD500331EBF /* ViewControllerApiFuncExtentions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +429,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CADF53BF26BD781200331EBF /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CADF53C026BD781200331EBF /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CADF53BF26BD781200331EBF /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		CADF53C226BD781200331EBF /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CADF53BF26BD781200331EBF /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CA04843726BC27D600024D84 /* Project object */;
 }
