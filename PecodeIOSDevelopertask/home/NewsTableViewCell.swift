@@ -38,9 +38,10 @@ class NewsTableViewCell: UITableViewCell {
             self.source.text = article.source?.name
             self.author.text = article.author
             self.title.text = article.title
-            let url = URL(string: article.urlToImage ?? "")
-            let data = try? Data(contentsOf: url!)
-            self.img.image = UIImage(data: data!)
+            if let url = URL(string: article.urlToImage ?? ""){
+                let data = try? Data(contentsOf: url)
+                self.img.image = UIImage(data: data!)
+            }
             
         }
     }

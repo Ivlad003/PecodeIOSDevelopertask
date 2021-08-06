@@ -10,6 +10,7 @@ import RealmSwift
 
 class ViewController: UIViewController {
     @IBOutlet weak var navItem: UINavigationItem!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var table: UITableView!
     
     static var cellID = "NewsCell"
@@ -27,7 +28,6 @@ class ViewController: UIViewController {
         table.rowHeight = UITableView.automaticDimension
         table.estimatedRowHeight = 80
         
-        Realm.Configuration.defaultConfiguration.deleteRealmIfMigrationNeeded = true
         
         let realm = try! Realm()
         
@@ -41,13 +41,13 @@ class ViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(onUpdateCounter(_:)), name: Notification.Name("onUpdateCounter"), object: nil)
         
+        self.spinner?.isHidden = false
         getNews()
     }
 
     
     @objc func onUpdateCounter(_ notification: Notification){
         let realm = try! Realm()
-        
         let articleObjects = realm.objects(ArticleObject.self)
         
         favorites?.title = "Favorites \(articleObjects.count)"
@@ -64,15 +64,17 @@ class ViewController: UIViewController {
         let submitAction = UIAlertAction(title: "Search", style: .default) { [unowned ac] _ in
             let answer = ac.textFields![0]
             self.newsModel = nil
+            self.currentCount = 1
             self.table.reloadData()
             if !(answer.text?.isEmpty ?? true) {
+                self.spinner?.isHidden = false
                 self.getNews(q: answer.text!)
             }
             
         }
 
         ac.addAction(submitAction)
-
+        
         present(ac, animated: true)
     }
 }

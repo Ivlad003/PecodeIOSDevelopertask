@@ -39,6 +39,7 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
         if editingStyle == .delete {
 
             let realm = try! Realm()
+            
             try! realm.write {
                 realm.delete( articleObjects[indexPath.row])
             }

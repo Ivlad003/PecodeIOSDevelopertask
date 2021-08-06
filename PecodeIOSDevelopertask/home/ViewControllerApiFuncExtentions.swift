@@ -12,7 +12,7 @@ extension ViewController{
         sendRequest("https://newsapi.org/v2/everything", parameters: [
             "q": "apple",
             "from": "2021-08-05",
-            "sortBy":"popularity",
+            "sortBy":"publishedAt",
             "pageSize": "10",
             "page": String(currentPage),
             "apiKey": "cd844480954845d59ae6db768267d719"]) { responseObject, error in
@@ -29,7 +29,7 @@ extension ViewController{
                     self.currentCount = self.newsModel?.articles?.count ?? 0
                     self.table.reloadData()
                     self.currentPage += 1
-                    
+                    self.spinner?.isHidden = true
                 }
             }
     }
@@ -53,7 +53,7 @@ extension ViewController{
                 return
             }
             
-            var json: Any?
+            let json: Any?
             
             json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
             
