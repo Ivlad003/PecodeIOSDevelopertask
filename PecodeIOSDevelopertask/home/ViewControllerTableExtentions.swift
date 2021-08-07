@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -15,9 +16,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ViewController.cellID, for: indexPath) as! NewsTableViewCell
-        
-        cell.bind(_article: newsModel?.articles![indexPath.row])
-        
+        let article = newsModel?.articles![indexPath.row]
+        cell.bind(_article: article)
+
         if indexPath.row + 1 == currentCount {
             getNews()
         }
@@ -26,7 +27,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var vc = NewsDetailsViewController()
+        let vc = NewsDetailsViewController()
         vc.url = newsModel?.articles![indexPath.row].url ?? ""
         self.navigationController?.pushViewController(vc, animated: true)
     }

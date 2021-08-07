@@ -11,7 +11,6 @@ import RealmSwift
 
 class FavoritesViewController: UIViewController{
     let table = UITableView()
-    var articles: [Article] = []
     var articleObjects: [ArticleObject] = []
     
     override func viewDidLoad() {
@@ -20,12 +19,7 @@ class FavoritesViewController: UIViewController{
         
         let realm = try! Realm()
         
-        let objects = realm.objects(ArticleObject.self)
-        
-        objects.forEach { object in
-            articles.append(ArticleObject.getArticle(articleObject: object))
-            articleObjects.append(object)
-        }
+        articleObjects = Array(realm.objects(ArticleObject.self))
         
         table.dataSource = self
         table.delegate = self

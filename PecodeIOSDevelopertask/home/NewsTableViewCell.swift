@@ -16,9 +16,7 @@ class NewsTableViewCell: UITableViewCell {
         
         let article = ArticleObject(article: article)
         
-        let isObjectExist = realm.object(ofType: ArticleObject.self, forPrimaryKey: article.id) != nil
-        
-        if isObjectExist {return}
+        if ArticleObject.isObjectExist(realm: realm, article: article) {return}
             
         try! realm.write {
             realm.add(article)
@@ -39,10 +37,10 @@ class NewsTableViewCell: UITableViewCell {
             self.author.text = article.author
             self.title.text = article.title
             if let url = URL(string: article.urlToImage ?? ""){
-                let data = try? Data(contentsOf: url)
-                self.img.image = UIImage(data: data!)
+                if let data = try? Data(contentsOf: url){
+                    self.img.image = UIImage(data: data)
+                }
             }
-            
         }
     }
 }

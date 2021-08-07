@@ -98,12 +98,12 @@
                                                     </constraints>
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZF2-vu-cV2">
-                                                    <rect key="frame" x="344" y="0.0" width="70" height="31"/>
+                                                    <rect key="frame" x="289.5" y="0.0" width="124.5" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="GsD-5P-HwL"/>
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="Saved"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Save to favorite"/>
                                                     <connections>
                                                         <action selector="addToFavorite:" destination="ugh-Ag-DpF" eventType="touchUpInside" id="Pqw-cu-D6F"/>
                                                     </connections>

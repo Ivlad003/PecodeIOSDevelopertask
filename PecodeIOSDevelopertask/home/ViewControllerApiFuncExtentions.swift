@@ -14,7 +14,7 @@ extension ViewController{
             "from": "2021-08-05",
             "sortBy":"publishedAt",
             "pageSize": "10",
-            "page": String(currentPage),
+            "page": String(nextPage),
             "apiKey": "cd844480954845d59ae6db768267d719"]) { responseObject, error in
                 guard let responseObject = responseObject, error == nil else {
                     print(error ?? "Unknown error")
@@ -28,7 +28,7 @@ extension ViewController{
                     }
                     self.currentCount = self.newsModel?.articles?.count ?? 0
                     self.table.reloadData()
-                    self.currentPage += 1
+                    self.nextPage += 1
                     self.spinner?.isHidden = true
                 }
             }

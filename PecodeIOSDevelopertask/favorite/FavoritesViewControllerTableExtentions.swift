@@ -12,14 +12,14 @@ import RealmSwift
 extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articles.count
+        return articleObjects.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
         
-        let article = articles[indexPath.row]
+        let article = articleObjects[indexPath.row]
         
         cell.textLabel?.text = article.title
         let url = URL(string: article.urlToImage ?? "")
@@ -30,8 +30,8 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var vc = NewsDetailsViewController()
-        vc.url = articles[indexPath.row].url ?? ""
+        let vc = NewsDetailsViewController()
+        vc.url = articleObjects[indexPath.row].url ?? ""
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -44,7 +44,6 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
                 realm.delete( articleObjects[indexPath.row])
             }
             
-            articles.remove(at: indexPath.row)
             articleObjects.remove(at: indexPath.row)
             
             NotificationCenter.default.post(name:Notification.Name("onUpdateCounter"), object: nil)

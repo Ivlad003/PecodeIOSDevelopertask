@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     static var cellID = "NewsCell"
     var newsModel: NewsModel?
-    var currentPage = 1
+    var nextPage = 1
     var currentCount = 0
     var favorites: UIBarButtonItem?
     
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         
         favorites = UIBarButtonItem(title: "Favorites \(articleObjects.count)", style: .plain, target: self, action: #selector(openFavorites))
         
-        var search = UIBarButtonItem(title: "Search", style: .plain, target: self, action: #selector(searchNews))
+        let search = UIBarButtonItem(title: "Search", style: .plain, target: self, action: #selector(searchNews))
         
         navigationItem.rightBarButtonItems = [favorites!, search]
         
@@ -64,13 +64,12 @@ class ViewController: UIViewController {
         let submitAction = UIAlertAction(title: "Search", style: .default) { [unowned ac] _ in
             let answer = ac.textFields![0]
             self.newsModel = nil
-            self.currentCount = 1
+            self.nextPage = 1
             self.table.reloadData()
             if !(answer.text?.isEmpty ?? true) {
                 self.spinner?.isHidden = false
                 self.getNews(q: answer.text!)
             }
-            
         }
 
         ac.addAction(submitAction)
